@@ -1,6 +1,7 @@
 package com.global.itct.interceptor;
 
 import org.jspecify.annotations.Nullable;
+import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -11,6 +12,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import lombok.AllArgsConstructor;
 
 @AllArgsConstructor
+@Component("bankServerActiveCheckInterceptor")
 public class LogInterceptor implements HandlerInterceptor {
 	
 	private final BankService bankService;
