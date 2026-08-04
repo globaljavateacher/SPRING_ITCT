@@ -17,11 +17,11 @@
            http://mybatis.org/schema/mybatis-spring
            http://mybatis.org/schema/mybatis-spring.xsd">
            
-	<context:component-scan base-package="com.global.itct"/>
-
-	<aop:aspectj-autoproxy/>    
-           
-	<bean id="logAspect" class="com.global.itct.aop.LogAspect"/>
+	<context:component-scan base-package="com.global.itct.service"/>
+	
+	<context:component-scan base-package="com.global.itct.aop"/>
+	
+	<context:component-scan base-package="com.global.itct.interceptor"/>
 
 	<aop:config>
         <aop:pointcut id="logService" expression="execution(* com.global.itct.service.*Service.helloHi(..))"/>
