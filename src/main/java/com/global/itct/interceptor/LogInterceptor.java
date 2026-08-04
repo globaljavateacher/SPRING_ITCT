@@ -4,18 +4,26 @@ import org.jspecify.annotations.Nullable;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.global.itct.service.BankService;
+
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import lombok.AllArgsConstructor;
 
+@AllArgsConstructor
 public class LogInterceptor implements HandlerInterceptor {
 	
-	public LogInterceptor() {}
-
+	private final BankService bankService;
+	
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
 		String requestURI = request.getRequestURI();
 		System.out.printf("LogInterceptor.preHandle requestURI:%s\n", requestURI);
-		return true;
+		if ( bankService.isServerActive() ) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 	
 	@Override
