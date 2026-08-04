@@ -1,7 +1,9 @@
 package com.global.itct.aop;
 
 import org.aspectj.lang.ProceedingJoinPoint;
+import org.springframework.stereotype.Component;
 
+@Component
 public class LogAspect {
 	
 	public Object around(ProceedingJoinPoint joinPoint) throws Throwable {
