@@ -7,7 +7,6 @@
 		http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
 
-
 	<context:component-scan base-package="com.global.itct.controller"/>
 	
 	<mvc:annotation-driven/>
@@ -17,12 +16,10 @@
         <property name="suffix" value=".jsp"/>
     </bean>
     
-    <bean id="logInterceptor" class="com.global.itct.interceptor.LogInterceptor"/>
-    
 	<mvc:interceptors>
 	    <mvc:interceptor>
 	        <mvc:mapping path="/hello/**"/>
-	        <ref bean="logInterceptor"/>
+	        <ref bean="bankServerActiveCheckInterceptor"/>
 	    </mvc:interceptor>
 	</mvc:interceptors>
 	
